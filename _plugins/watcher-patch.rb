@@ -1,6 +1,4 @@
 
-
-
 require 'jekyll-watch'
 
 module Jekyll
