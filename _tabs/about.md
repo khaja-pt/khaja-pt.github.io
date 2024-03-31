@@ -4,12 +4,10 @@ icon: fas fa-info-circle
 order: 4
 ---
 
-Hello there! 
+puts "Hello there! Welcome to my profile. Here you can find more about me and my work."
 
-Welcome to my profile. Here you can find more about me and my work.
+puts "- **LinkedIn:** [Khaja Zaffer](https://www.linkedin.com/in/khaja-zaffer-pt/)"
+puts "- **Coding Website:** [StrataScratch](https://platform.stratascratch.com/user/Khaja1Zaffer)"
+puts "- **GitHub:** [Khaja PT](https://khaja-pt.github.io/)"
 
-- **LinkedIn:** [Khaja Zaffer](https://www.linkedin.com/in/khaja-zaffer-pt/) {:target="_blank"}
-- **Coding Website:** [StrataScratch](https://platform.stratascratch.com/user/Khaja1Zaffer) {:target="_blank"}
-- **GitHub:** [Khaja PT](https://khaja-pt.github.io/) {:target="_blank"}
-
-Feel free to explore and reach out to me if you have any questions or opportunities for collaboration!
+puts "Feel free to explore and reach out to me if you have any questions or opportunities for collaboration!"
