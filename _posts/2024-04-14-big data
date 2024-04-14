@@ -1,0 +1,38 @@
+In order to run a spark application you need to deploy it on a cluster (see this post for an introduction). There are different ways to submit your application on a cluster but the most common is to use the spark-submit.
+
+`spark-submit` is a command-line tool provided by Apache Spark for submitting Spark applications to a cluster. It is used to launch applications on a standalone Spark cluster, a Hadoop YARN cluster, or a Mesos cluster.
+
+The spark-submit tool takes a JAR file or a Python file as input along with the application’s configuration options and submits the application to the cluster. The configuration options can be used to set various parameters for the application, such as the number of executor cores, the amount of memory allocated to each executor, and the number of executors.
+
+When the application is submitted using spark-submit, Spark automatically distributes the application’s code and any required dependencies to the cluster. Spark then launches a driver program on one of the nodes in the cluster, which coordinates the execution of the application’s tasks on the cluster’s worker nodes.
+
+Spark-submit can be run in various modes, such as client mode or cluster mode, depending on whether the driver program runs on the machine where the command is executed or on a node in the cluster. The mode is specified using the — deploy-mode option when submitting the application.
+
+
+The general structure of the spark-submit command is as follows:
+
+spark-submit [options] <application-jar> [application-arguments]
+where:
+
+spark-submit: The name of the command-line tool for submitting Spark applications.
+[options]: Optional command-line options that configure the behavior of the spark-submit tool and the Spark application being submitted.
+<application-jar>: The path to the JAR file containing the Spark application code. This JAR file must be created beforehand using a build tool. (A JAR (Java ARchive) file is a package file format used to aggregate Java class files, associated metadata, and resources (such as images, sound files, and other supporting files) into a single file. It is a standard format used for distributing Java applications and libraries.)
+[application-arguments]: Optional command-line arguments that are passed to the Spark application's main method.
+Here are some examples of commonly used options:
+
+--class <main-class>: Specifies the fully qualified name of the main class for the Spark application. This option is required for Java or Scala applications, but not needed for pySpark.
+--master <master-url>: Specifies the URL of the cluster manager for the Spark application. This option is used to specify whether the application should be run locally or on a remote cluster, and which type of cluster manager to use (e.g. local, standalone, YARN, or Mesos).
+--deploy-mode <deploy-mode>: Specifies whether the driver program should run locally or on a remote cluster. This option is used to specify whether the driver program should run on the machine where the spark-submit command is executed (client mode) or on one of the worker nodes in the cluster (cluster mode).
+--executor-memory <memory>: Specifies the amount of memory to allocate to each executor in the Spark application. The memory value can be specified in units such as g (gigabytes) or m (megabytes).
+--num-executors <num-executors>: Specifies the number of executor processes to launch in the Spark application.
+Here is an example of using spark-submit for running an application that calculates pi:
+
+./bin/spark-submit \ # The path to the spark-submit script
+ — master local \ # The URL of the Spark master (in this case, running in local mode)
+./examples/src/main/python/pi.py 10 # The path to the Python file containing the Pi approximation code, and a numeric argument to the application
+he spark-submit is used to submit the pi.py file as a PySpark application to be run on the local machine. Here's what each option means:
+
+./bin/spark-submit: The path to the spark-submit script. This assumes that you are running the command from the top-level directory of the Spark installation.
+--master local: Specifies that the Spark application should run in local mode, meaning it will run on the machine where the spark-submit command is executed. The local argument specifies that the application should use only one core/thread.
+./examples/src/main/python/pi.py: Specifies the path to the Python file containing the code for the Pi approximation application. In this case, the path is relative to the top-level directory of the Spark installation.
+10: A command-line argument that is passed to the pi.py application.
